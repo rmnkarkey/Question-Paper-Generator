@@ -1,0 +1,83 @@
+{% extends 'questionGenerator/base.html' %}
+{% block content %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <img src="{% static 'img/large.jpg' %}" style="margin-left:580px" height=100px width=100px>
+    <br>
+    <br>
+    <p style="text-align:center;margin-left:100px">FACULTY OF BUSINESS AND INFORMATION SCIENCE</p>
+    <p style="text-align:center">Putalisadak, Kathmandu</p>
+    <p style="text-align:center;margin-left:17px">Subject : {{subject}}</p>
+    <p style="text-align:center;margin-right:72px">Semester : {{sem}}</p>
+
+<br>
+
+<b>Answer all questions</b>
+    <br>
+    <br>
+    <br>
+    GROUP A
+    <br>
+    <br>
+    {% for i in questionBank %}
+      {% if year == i.year %}
+        {% if sem == i.semester %}
+          {% if subject == i.subject %}
+            {% if diffOne == i.difficulty %}
+              <span style="float:left;margin-left:60px;">{{i.question}}</span><span style="float:right;margin-right:60px">{{i.marks}}</span>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    <br>
+    <br>
+    <br>
+    GROUP B
+    <br>
+    <br>
+    {% for i in questionBank %}
+      {% if year == i.year %}
+        {% if sem == i.semester %}
+          {% if subject == i.subject %}
+            {% if diffTwo == i.difficulty %}
+            <span style="float:left;margin-left:60px;">{{i.question}}</span><span style="float:right;margin-right:60px">{{i.marks}}</span>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    <br>
+    <br>
+    <br>
+    GROUP C
+    <br>
+    <br>
+    {% for i in questionBank %}
+      {% if year == i.year %}
+        {% if sem == i.semester %}
+          {% if subject == i.subject %}
+            {% if diffThree == i.difficulty %}
+            <span style="float:left;margin-left:60px;">{{i.question}}</span><span style="float:right;margin-right:60px">{{i.marks}}</span>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+<br>
+<br>
+    <br>
+    <br>
+    <br>
+    <span style="float:left;margin-left:60px;">SHARE</span><span style="float:right;margin-right:60px"><a href="{% url 'downn' %}">DOWNLOAD</a></span>
+{{nothing}}
+  </body>
+</html>
+{% endblock %}

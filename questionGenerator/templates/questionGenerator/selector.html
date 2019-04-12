@@ -1,0 +1,61 @@
+{% extends 'questionGenerator/base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<form action="{% url 'selector' chapters.id %}" method="post">
+  {% csrf_token %}
+  Subject: <input class = "form-control"  type="text" name="subject" value='{{sub}}'>
+<br>
+Chapter: <input class = "form-control"  type="text" name="chapter" value='{{chapters.chapters}}'>
+<br>
+Semester: <input class = "form-control"  type="number" name="semester">
+<br>
+Year: <input class = "form-control"  type="number" name="year">
+<br>
+
+<br>
+
+  Group A
+<br>
+<br>
+  Difficulty Level: <select class = "form-control"  name="difficultyForA">
+      <option value="Easy">Easy</option>
+      <option value="Medium">Medium</option>
+      <option value="Hard">Hard</option>
+  </select>
+  <br>
+<br>
+  Group B
+<br>
+  <br>
+  Difficulty Level: <select class = "form-control"  name="difficultyForB">
+      <option value="Easy">Easy</option>
+      <option value="Medium">Medium</option>
+      <option value="Hard">Hard</option>
+  </select>
+  <br>
+<br>
+Group C
+<br>
+<br>
+Difficulty Level: <select  class = "form-control" name="difficultyForC">
+    <option value="Easy">Easy</option>
+    <option value="Medium">Medium</option>
+    <option value="Hard">Hard</option>
+</select>
+<br>
+<br>
+<br>
+  <input class = "btn btn-primary" type="submit" value="Generate">
+  <br>
+  <br><br>
+</form>
+  </body>
+</html>
+{% endblock %}

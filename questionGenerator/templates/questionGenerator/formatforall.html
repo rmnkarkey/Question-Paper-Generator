@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  </head>
+  <body>
+    <center>
+    <img src="https://seadom-production.storage.googleapis.com/public/uploads/organizations/26/large.jpg?1547870037" height=100px width=100px>
+    </center>
+    <br>
+    <p style="text-align:center;margin-left:30px">FACULTY OF BUSINESS AND INFORMATION SCIENCE</p>
+    <p style="text-align:center">Putalisadak, Kathmandu</p>
+    <p style="text-align:center;margin-right:0px">Subject : {{subject}}</p>
+    <p style="text-align:center;margin-right:65px">Semester : {{sem}}</p>
+
+<br>
+<b>Answer all questions</b>
+
+    <br>
+    <br>
+    <br>
+    GROUP A
+    <br>
+    <br>
+    {% for i in questionBank %}
+      {% if year == i.year %}
+        {% if sem == i.semester %}
+          {% if subject == i.subject %}
+              {% if diffOne == i.difficulty %}
+                <span style="float:left;margin-left:60px;">{{i.question}}<h4 style="margin-left:700px">{{i.marks}}</h4></span>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    <br>
+    GROUP B
+    <br>
+    <br>
+    {% for i in questionBank %}
+      {% if year == i.year %}
+        {% if sem == i.semester %}
+          {% if subject == i.subject %}
+            {% if diffTwo == i.difficulty %}
+            <span style="float:left;margin-left:60px;">{{i.question}}<h4 style="margin-left:700px">{{i.marks}}</h4></span>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    <br>
+    GROUP C
+    <br>
+    <br>
+    {% for i in questionBank %}
+      {% if year == i.year %}
+        {% if sem == i.semester %}
+          {% if subject == i.subject %}
+            {% if diffThree == i.difficulty %}
+            <span style="float:left;margin-left:60px;">{{i.question}}<h4 style="margin-left:700px">{{i.marks}}</h4></span>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+<br>
+<br>
+
+</body>
+</html>

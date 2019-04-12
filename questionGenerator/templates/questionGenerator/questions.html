@@ -1,0 +1,36 @@
+{% extends 'questionGenerator/base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form action="{% url 'addQuestion' %}" method="post">
+      {% csrf_token %}
+      question id: <input class = "form-control" type="number" name="question_id">
+      <br>
+      Enter the question: <input class = "form-control"  type="text" name="question">
+      <br>
+      Unit No.: <input class = "form-control"  type="text" name="unit">
+      <br>
+      Subject: <input class = "form-control"  type="text" name="subject" value='{{sub}}'>
+      <br>
+      Chapter: <input class = "form-control"  type="text" name="chapter" value='{{chapters.chapters}}'>
+      <br>
+      Semester: <input class = "form-control"  type="number" name="semester">
+      <br>
+      Year: <input class = "form-control"  type="number" name="year">
+      <br>
+      Subject Code: <input class = "form-control"  type="text" name="subject_code">
+      <br>
+      <input class = "btn btn-primary"   type="submit" value="Add Question">
+    </form>
+<br><br><br>
+<a class = "btn btn-primary " href="{% url 'selector' chapters.id %}"><b>GENERATE QUESTIONS</b></a>
+
+  </body>
+</html>
+{% endblock %}

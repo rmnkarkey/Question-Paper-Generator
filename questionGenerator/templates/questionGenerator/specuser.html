@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form action="{% url 'users' user.id %}" method="post">
+      {% csrf_token %}
+      {{form}}
+      <input type="submit" value="Update">
+    </form>
+    <form action="{% url 'usersDelete' user.id %}" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Delete">
+    </form>
+
+  </body>
+</html>

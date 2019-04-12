@@ -1,0 +1,22 @@
+{% extends 'questionGenerator/base.html' %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Complete your registration Process</h1>
+    <form action="{% url 'complete' user.id %}" method="POST">
+        {% csrf_token %}
+        <input type="checkbox" name="user" value="teacher"> AS teacher
+        <br>
+        <br>
+        <input type="submit" value="complete">
+    </form>
+</body>
+</html>
+{% endblock %}

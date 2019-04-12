@@ -1,0 +1,28 @@
+{% extends 'questionGenerator/base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    Add Chapters
+    <br>
+    <form action="{% url 'addChapters' %}" method="post">
+        {% csrf_token %}
+        Chapter Name: <input type="text" name="chapterName">
+        <input type="submit" name="" value="Add">
+    </form>
+    <br>
+    <p>List of Chapters:</p>
+  {% for i in subchapters %}
+<li><a href="{% url 'specific_questions' i.id %}">{{i.chapters}}</a></li>
+<br>
+  {% endfor %}
+  <a class = "btn btn-primary " href="{% url 'allChapters' %}"><b>GENERATE QUESTIONS</b></a>
+
+  </body>
+</html>
+{% endblock %}

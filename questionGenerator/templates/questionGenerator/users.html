@@ -1,0 +1,19 @@
+{% extends 'questionGenerator/base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    TO::
+    <br>
+    {% for i in user %}
+    <li>{{i.username}}</li>
+    <br>
+    {% endfor %}
+  </body>
+</html>
+{% endblock %}

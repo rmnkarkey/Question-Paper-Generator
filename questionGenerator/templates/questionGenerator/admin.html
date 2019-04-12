@@ -1,0 +1,70 @@
+{% extends 'questionGenerator/base.html' %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  </head>
+<body>
+  <center>
+    <h1>ADMIN SECTION
+<div style="font-size:15px">
+<div style="height:200px">
+  <br>
+      Courses:
+      <br>
+      <br>
+      List of Courses:
+      <br>
+      {% for i in subs %}
+      <li>{{i.course_title}}</li>
+      {% endfor %}
+</div>
+      <br>
+      <br>
+      <br>
+      <div style="height:150px">
+
+      Add Course
+      <br>
+      <form action="{% url 'addcourse' %}" class="form-group" method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" class = "btn btn-primary " value="Add">
+      </form>
+</div>
+      <br>
+      <div style="height:150px">
+
+      Lists of users:
+      <br>
+      {% for i in users %}
+      <a href="{% url 'users' i.id %}">{{i.username}}</a>
+      <br>
+      {% endfor %}
+      </div>
+      <br>
+      <div style="height:150px">
+      Add Users:
+      <a href="{% url 'register' %}">Add</a>
+      </div>
+      <br>
+      <br>
+      <div style="height:150px">
+
+      Lists of Questions:
+      <br>
+      {% for i in ques %}
+      {{i.question}} - {{i.subject}}
+      <br>
+      {% endfor %}
+    </h1>
+    </div>
+</div>
+</center>
+</body>
+</html>
+{% endblock %}
